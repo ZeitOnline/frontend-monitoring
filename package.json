@@ -10,7 +10,8 @@
   "dependencies": {
     "async": "^2.6.0",
     "graphite": "^0.1.2",
-    "pa11y": "^5.0.3"
+    "pa11y": "^5.0.3",
+    "webcoach": "^3.0.0"
   },
   "scripts": {
     "start": "node index.js"
