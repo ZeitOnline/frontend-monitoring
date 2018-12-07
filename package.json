@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Valentin von Guttenberg <greengiraffe@posteo.de>",
+  "contributors": [
+    "Thomas Puppe <info@thomaspuppe.de>"
+  ],
   "license": "MIT",
   "dependencies": {
     "async": "^2.6.0",
