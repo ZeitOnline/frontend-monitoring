@@ -23,6 +23,15 @@ Run competetive Accessibility tests and send them to a Graphite db
 
 The Cronjob is accessible through the [Kubernetes-Dashboard](http://217.13.69.11:8080/r/projects/1a5/kubernetes-dashboard:9090/#!/cronjob?namespace=default) (view logs etc.)
 
+## Checks
+
+### Pa11y
+
+### Webcoach
+
+### HTML-Validator
+
+
 ## To-do
 
 ## Clean up

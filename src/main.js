@@ -1,3 +1,4 @@
+/*
 const pa11y = require('pa11y')
 const fs = require('fs')
 const graphite = require('graphite')
@@ -62,3 +63,4 @@ function sendStats (siteName, siteType, stats, topIssues, numberOfContrastErrors
   })
   client.end()
 }
+*/
