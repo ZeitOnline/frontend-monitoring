@@ -1,4 +1,8 @@
 const validator = require('html-validator')
+
+const saveRawData = require('./../../utils/saveRawData')
+const sendToGraphite = require('./../../utils/sendToGraphite')
+
 const statsFilter = require('./filters/stats')
 
 exports = module.exports = {}
@@ -25,7 +29,7 @@ exports.run = function run (siteName, siteType, url) {
 
 	    sendToGraphite(metrics)
 		// TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
-		console.log(matrics)
+		console.log(metrics)
 
 		return metrics
 	})

@@ -54,6 +54,21 @@ for (let site in URLS) {
 }
 
 
+// ********************************************************************
+// HTML Validator
+// ********************************************************************
+const htmlValidator = require('./src/checks/html-validator/check')
+
+for (let site in URLS) {
+  for (let type in URLS[site]) {
+    const url = URLS[site][type]
+    htmlValidator.run(site, type, url).then(() => {
+      console.log(`Finished html-validator check for ${url}`)
+    })
+  }
+}
+
+
 /*
 // ********************************************************************
 // Webcoach Scores
