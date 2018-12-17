@@ -1,5 +1,5 @@
 
-REGISTRY := registry.k8s.zeit.de
+REGISTRY := registry.zeit.de
 REV := $(shell git describe --tags)
 
 .PHONY: build

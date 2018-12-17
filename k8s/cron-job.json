@@ -13,7 +13,7 @@
             "containers": [
               {
                 "name": "a11y-dashbord-connector",
-                "image": "registry.k8s.zeit.de/a11y-dashbord-connector:v0.1"
+                "image": "registry.zeit.de/a11y-dashbord-connector:v0.1"
               }
             ],
             "restartPolicy": "OnFailure"
