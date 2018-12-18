@@ -15,13 +15,26 @@ Run competetive Accessibility tests and send them to a Graphite db
 
 ## Run & Deploy
 
+### Deployment Prerequisites
+* [Install gcloud SDK](https://cloud.google.com/sdk/)
+* [Init gcloud SDK](https://cloud.google.com/sdk/docs/quickstart-mac-os-x#initialize_the_sdk)
+* [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+* Connect to the K8s Cluster
+  * therefore run `gcloud container clusters get-credentials zon-misc-prod-1 --zone europe-west3-a --project zeitonline-gke-misc-prod` in your commandline
+* Set the Kubectl Context 
+  * therefore run `kubectl config set-context a11y-connector-production --cluster=gke_zeitonline-gke-misc-prod_europe-west3-a_zon-misc-prod-1 --user=gke_zeitonline-gke-misc-prod_europe-west3-a_zon-misc-prod-1 --namespace=a11y-connector` in your commandline
+* Use the Context
+  * run `kubectl config use-context a11y-connector-production` in y our commandline
+
+### Build Docker Image and Deploy to K8s
+
 | Command | What's happening? |
 | ------  | --------- |
 | `make build` | generate new Docker-Image with current revision |
 | `make test`  | run most recent Docker-Image based on revision  |
 | `make k8s`   | deploy most recent Docker-Image based on revision to Kubernetes-Cluster as a Cronjob|
 
-The Cronjob is accessible through the [Kubernetes-Dashboard](http://217.13.69.11:8080/r/projects/1a5/kubernetes-dashboard:9090/#!/cronjob?namespace=default) (view logs etc.)
+The Cronjob is accessible through the [Kubernetes-Dashboard](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector) (view logs etc.)
 
 ## Checks
 
@@ -30,7 +43,6 @@ The Cronjob is accessible through the [Kubernetes-Dashboard](http://217.13.69.11
 ### Webcoach
 
 ### HTML-Validator
-
 
 ## To-do
 
