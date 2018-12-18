@@ -5,6 +5,7 @@
     "name": "a11y-dashbord-connector"
   },
   "spec": {
+    "concurrencyPolicy": "Forbid",
     "schedule": "*/10 * * * *",
     "jobTemplate": {
       "spec": {
