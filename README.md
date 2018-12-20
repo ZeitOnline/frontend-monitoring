@@ -1,17 +1,24 @@
 # a11y-dashboard-connector
-Run competetive Accessibility tests and send them to a Graphite db
+Run competetive Accessibility and Quality checks and send them to a Graphite db
+
+## Quickstart for local development
+
+Do the `yarn install` and `yarn start`. The tests will run and print some results to your console.
+
+Next, go ahead and play with the scripts. Output is generated to the console and into the `reports`folder. Whatever crazy thing you invent – if you are inside the ZON network, your stats will instantly be available on http://sitespeed.zeit.de/dashboard/db/accessibility-dashboard?refresh=5m&orgId=1 .
+
 
 ## High level overview
 
 - Run with `yarn start` which only does `node index.js`.
-- The `index.js` only itereates over a list of urls and "queues" them async to `run`.
-- The `run` function in `main.js` runs pa11y for each URL and pa11y returns a report (big array of issues)
-  - The report is saved as JSON file into the `reports` folder
-  - The report is processed by different filters
-  - Each filter takes a pa11y report as input and returns one or multiple values (calculated/filtered data).
-- The values are put to the function `sendStats`.
-- `sendStats` glues the values together into an objext, which is sent to Graphite.
-  - The object structure and the key names represent the hierarchy in which you will find the data inside Graphite.
+- The `index.js` only itereates over a list of urls and starts "checks" with them.
+- Each check is a module inside the `checks` folder.
+- A check runs one tool (eg html-validator, pa11y) for each URL given, and handles the result on its own. "Handling" can mean anything, but in most cases it is
+  - Filter and name the results (eg counting errors of a certain type).
+  - Store the result in a folder, for manual inspection.
+  - Send the result to graphite. Therefore, an object is built which represents the namespace where the metrics will be found in graphite/grafana (eg `htmlvalidator.zeit-de.homepage.stats.errorCount`).
+- Storing and sending is done by helper functions, which are found in the shared "utils" folder.
+
 
 ## Run & Deploy
 
@@ -36,29 +43,29 @@ Run competetive Accessibility tests and send them to a Graphite db
 
 The Cronjob is accessible through the [Kubernetes-Dashboard](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector) (view logs etc.)
 
+
 ## Checks
 
-### Pa11y
+- Pa11y ([GitHub](https://github.com/pa11y/pa11y), [npm](https://www.npmjs.com/package/pa11y))
+- Webcoach ([GitHub](https://github.com/sitespeedio/coach), [npm](https://www.npmjs.com/package/webcoach)) – zurzeit deaktiviert weil der Puppeteer/Browser nicht tut.
+- HTML-Validator ([GitHub](https://github.com/zrrrzzt/html-validator), [npm](https://www.npmjs.com/package/html-validator))
 
-### Webcoach
-
-### HTML-Validator
 
 ## To-do
 
-## Clean up
+### Clean up
 
 - `index.js` is a lot of unreadable boilerplate.
 - naming things: make clear which part is pa11y, which is grafana-connection, which are _our_ filters, which is code to tape things together
 - send each report result to Graphite, instead of glueing it together in the `sendStats` function
 
-## Make this usable for others
+### Make this usable for others
 
 - The list of urls should come from a config file
 - Command Line Interface (params: which sites, graphite url)
 
+### Feature Ideas
 
-## Feature Ideas
-
+- Make the test result/console output available, if possible. We want know instantly, what "n HTML errors on page X" means.
 - axe for analyses: reports good parse-able advice (Violation of "color-contrast" with 108 occurrences!)
 - exclude elements like ads (look for "hide elements" in https://bitsofco.de/pa11y/) ... if this makes sense. Maybe as an extra report: issues with and without ads ?
