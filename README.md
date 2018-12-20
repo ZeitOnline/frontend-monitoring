@@ -53,12 +53,6 @@ The Cronjob is accessible through the [Kubernetes-Dashboard](https://console.clo
 
 ## To-do
 
-### Clean up
-
-- `index.js` is a lot of unreadable boilerplate.
-- naming things: make clear which part is pa11y, which is grafana-connection, which are _our_ filters, which is code to tape things together
-- send each report result to Graphite, instead of glueing it together in the `sendStats` function
-
 ### Make this usable for others
 
 - The list of urls should come from a config file
