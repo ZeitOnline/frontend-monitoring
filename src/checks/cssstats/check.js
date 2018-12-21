@@ -23,6 +23,7 @@ exports.run = function run (siteName, siteType, url) {
 // entgegen. Die Website cssstats.com nimmt eine URL, und sammelt dort alle 
 // CSS unter derselben Domain zusammen, und analysiert die. Diesen Schritt 
 // müssen wir hier nachbauen (oder den Code finden mit dem sie das machen).
+// :tada: https://github.com/cssstats/get-css
 // - Seite öffnen
 // - alle CSS-Dateien finden
 // - Dateien herunterladen in einen tmp-Folder
