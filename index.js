@@ -18,7 +18,7 @@ const URLS = {
   }
 }
 
-
+/*
 // ********************************************************************
 // Pa11y Scores
 // ********************************************************************
@@ -69,6 +69,20 @@ for (let site in URLS) {
       console.log(`Finished html-validator check for ${url}`)
     })
   }
+}
+*/
+
+// ********************************************************************
+// CSS Stats
+// ********************************************************************
+const cssstats = require('./src/checks/cssstats/check')
+
+const site = 'zeit-de'
+for (let type in URLS[site]) {
+  const url = URLS[site][type]
+  cssstats.run(site, type, url).then(() => {
+    console.log(`Finished cssstats for ${url}`)
+  })
 }
 
 
