@@ -1,35 +1,39 @@
-const validator = require('cssstats')
+const getCss = require('get-css');
+const cssStats = require('cssstats')
 exports = module.exports = {}
 
 exports.run = function run (siteName, siteType, url) {
-    // TODO: cssstats ist nicht asynchron. Da wir aber draußen in der 
-    // index.js eine Promise erwarten (muss man nicht machen, aber für 
-    // die Konsistenz wäre das gut), müssen wir das hier wrappen und eine 
-    // Promise zurückgeben.
-	return validator({
-		url: url
-	})
-	.then((results) => {
-		console.log(results)
-		return {}
-	})
-	.catch((error) => {
-		console.error(error)
-	})
+
+    return getCss(url)
+      .then(function(response) {
+        const css = getCompleteCss(response.links);
+
+        stats = cssStats(css, {
+            mediaQueries: false
+        });
+        console.log( 'Rules: ' + stats.rules.total );
+        console.log( 'Different Font Sizes: ' + stats.declarations.getAllFontSizes().unique().length );
+
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
+
 }
 
+function getCompleteCss(files) {
+    let cssList = [];
+    for ( const file of files ) {
+        if (file.url.startsWith('https://static.zeit.de/assets/') && !file.url.endsWith('print.css')) {
+            cssList.push(file.css)
+        }
+    }
+    return cssList.join('\n');
+}
 
-// TODO: größere Herausforderung ... cssstats nimmt nur lokale CSS-Dateien 
-// entgegen. Die Website cssstats.com nimmt eine URL, und sammelt dort alle 
-// CSS unter derselben Domain zusammen, und analysiert die. Diesen Schritt 
-// müssen wir hier nachbauen (oder den Code finden mit dem sie das machen).
-// :tada: https://github.com/cssstats/get-css
-// - Seite öffnen
-// - alle CSS-Dateien finden
-// - Dateien herunterladen in einen tmp-Folder
-// - cssstats über alle Dateien (oder eine zusammenkopierte Datei!) laufen lassen
-// - Ergebnis zusammenmergen (oder sich das sparen!)
-// - Ergebnis zurückgeben
-// - tmp-Folder löschen
-// Der Check selber hat dann wieder Filter für das große cssstats Ergebnis,
-// und specihert das Original in einer Datei im reports Folder weg.
+// https://coderwall.com/p/nilaba/simple-pure-javascript-array-unique-method-with-5-lines-of-code
+Array.prototype.unique = function() {
+  return this.filter(function (value, index, self) {
+    return self.indexOf(value) === index;
+  });
+}
