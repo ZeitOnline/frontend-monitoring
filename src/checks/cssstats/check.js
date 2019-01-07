@@ -1,5 +1,11 @@
 const getCss = require('get-css');
 const cssStats = require('cssstats')
+
+const saveRawData = require('./../../utils/saveRawData')
+const sendToGraphite = require('./../../utils/sendToGraphite')
+
+const statsFilter = require('./filters/stats')
+
 exports = module.exports = {}
 
 exports.run = function run (siteName, siteType, url) {
@@ -8,12 +14,29 @@ exports.run = function run (siteName, siteType, url) {
       .then(function(response) {
         const css = getCompleteCss(response.links);
 
-        stats = cssStats(css, {
+        results = cssStats(css, {
             mediaQueries: false
         });
-        console.log( 'Rules: ' + stats.rules.total );
-        console.log( 'Different Font Sizes: ' + stats.declarations.getAllFontSizes().unique().length );
 
+        const stats = statsFilter(results)
+
+        const metrics = {
+          cssstats: {
+            [siteName]: {
+              [siteType]: {
+                stats
+              }
+            }
+          }
+        }
+
+        sendToGraphite(metrics)
+        // TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
+        console.log(metrics)
+
+        saveRawData(results, `${siteName}_${siteType}_cssstats`)
+
+        return metrics
       })
       .catch(function(error) {
         console.error(error);
@@ -29,11 +52,4 @@ function getCompleteCss(files) {
         }
     }
     return cssList.join('\n');
-}
-
-// https://coderwall.com/p/nilaba/simple-pure-javascript-array-unique-method-with-5-lines-of-code
-Array.prototype.unique = function() {
-  return this.filter(function (value, index, self) {
-    return self.indexOf(value) === index;
-  });
 }
