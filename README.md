@@ -51,6 +51,49 @@ The Cronjob is accessible through the [Kubernetes-Dashboard](https://console.clo
 - HTML-Validator ([GitHub](https://github.com/zrrrzzt/html-validator), [npm](https://www.npmjs.com/package/html-validator))
 
 
+## Hands-on: creating a new check
+
+Step-by-step protocol of creating a new metric on our dashoard.
+
+First, I install the npm module I want to use and copy an existing check.
+
+	yarn add cssstats
+	cp -r ./src/checks/html-validator ./src/checks/cssstats
+
+Then, I modify the check to be run in the most simple form to inspect its output. Even though you probably already know what you want from a module.
+
+	// ./src/checks/cssstats/check.js
+	const validator = require('cssstats')
+	exports = module.exports = {}
+	exports.run = function run (siteName, siteType, url) {
+		return validator({
+			url: url
+		})
+		.then((results) => {
+			console.log(results)
+			return {}
+		})
+		.catch((error) => {
+			console.error(error)
+		})
+	}
+
+I use this new check inside the index.js file to start it. 
+
+	const cssstats = require('./src/checks/cssstats/check')
+	const site = 'zeit-de'
+	for (let type in URLS[site]) {
+	  const url = URLS[site][type]
+	  cssstats.run(site, type, url).then(() => {
+	    console.log(`Finished cssstats for ${url}`)
+	  })
+	}
+
+I also commented-out the existing checks to speed up testing, and only check the zeit.de sites.
+
+Now you may run `yarn start`.
+
+
 ## To-do
 
 ### Make this usable for others
