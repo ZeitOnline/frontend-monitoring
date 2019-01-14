@@ -12,14 +12,15 @@ module.exports = results => {
     numberOfSelectors: results.selectors.total,
     numberOfDeclarations: results.declarations.total,
     numberOfDifferentFontSizes: results.declarations.getAllFontSizes().unique().length,
+    numberOfImportantDeclarations: results.declarations.important.length,
     averageSpecificity: results.selectors.specificity.average,
     maxSpecificity: results.selectors.specificity.max
   }
 }
 
 // https://coderwall.com/p/nilaba/simple-pure-javascript-array-unique-method-with-5-lines-of-code
-Array.prototype.unique = function() {
+Array.prototype.unique = function () {
   return this.filter(function (value, index, self) {
-    return self.indexOf(value) === index;
-  });
+    return self.indexOf(value) === index
+  })
 }
