@@ -12,7 +12,7 @@ exports.run = function run (siteName, siteType, url, mobile=false) {
 		const stats = statsFilter(results)
 
 		saveRawData(results, `${siteName}_${siteType}_webcoach`)
-		
+
 	    const metrics = {
 	      webcoach: {
 	        [siteName]: {
@@ -25,7 +25,7 @@ exports.run = function run (siteName, siteType, url, mobile=false) {
 
 	    sendToGraphite(metrics)
 		// TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
-		console.log(metrics)
+		// console.log(metrics)
 
 		return metrics
 	}).catch((error) => {
