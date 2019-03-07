@@ -13,14 +13,14 @@
     "cssstats": "^3.2.0",
     "get-css": "^1.2.7-2",
     "graphite": "^0.1.2",
-    "html-validator": "^3.1.3",
+    "html-validator": "^4.0.0",
     "pa11y": "^5.0.3"
   },
   "scripts": {
     "start": "node index.js"
   },
   "devDependencies": {
-    "eslint": "^5.15.0",
+    "eslint": "^5.15.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
