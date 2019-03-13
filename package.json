@@ -9,7 +9,6 @@
   "license": "MIT",
   "dependencies": {
     "async": "^2.6.2",
-    "broken-link-checker": "^0.7.8",
     "cssstats": "^3.2.0",
     "get-css": "^1.2.7-2",
     "graphite": "^0.1.2",
