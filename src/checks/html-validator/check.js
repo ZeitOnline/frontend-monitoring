@@ -16,7 +16,7 @@ exports.run = function run (siteName, siteType, url) {
 		const stats = statsFilter(JSON.parse(results))
 
 		saveRawData(results, `${siteName}_${siteType}_htmlvalidator`)
-		
+
 	    const metrics = {
 	      htmlvalidator: {
 	        [siteName]: {
@@ -29,7 +29,7 @@ exports.run = function run (siteName, siteType, url) {
 
 	    sendToGraphite(metrics)
 		// TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
-		console.log(metrics)
+		// console.log(metrics)
 
 		return metrics
 	})

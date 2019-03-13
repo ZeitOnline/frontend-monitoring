@@ -30,20 +30,17 @@ const pa11yCheck = require('./src/checks/pa11y/check')
 // können wir sie doch ruhig parallel starten ... oder ist es doof wenn dutzende
 // Tests parallel laufen, und wir queuen sie deshalb? ... dann aber alle!
 const queue = async.queue((task, cb) => {
-  console.log(`Start ${task.url}`)
   pa11yCheck.run(task.site, task.type, task.url).then(() => {
     cb(task.url)
   })
 }, 3)
 
 queue.drain = () => {
-  console.log('All Pa11y tests finished.')
+  // console.log('All Pa11y tests finished.')
 }
 
-console.log('Starting Pa11y tests')
-
 const doneCallback = (url) => {
-  console.log(`Tested ${url} in pa11y`)
+  console.log(`Finished pa11y for ${url}`)
 }
 
 for (let site in URLS) {
@@ -65,7 +62,7 @@ for (let site in URLS) {
   for (let type in URLS[site]) {
     const url = URLS[site][type]
     htmlValidator.run(site, type, url).then(() => {
-      console.log(`Finished html-validator check for ${url}`)
+      console.log(`Finished html-validator for ${url}`)
     })
   }
 }
@@ -94,10 +91,10 @@ for (let site in URLS) {
   for (let type in URLS[site]) {
     const url = URLS[site][type]
     webcoachCheck.run(site, type, url, false).then(() => {
-      console.log(`Finished webcoach check for ${url} on Desktop`)
+      console.log(`Finished webcoach for ${url} on Desktop`)
     })
     webcoachCheck.run(site, type, url, true).then(() => {
-      console.log(`Finished webcoach check for ${url} on Mobile`)
+      console.log(`Finished webcoach for ${url} on Mobile`)
     })
   }
 }

@@ -44,7 +44,7 @@ exports.run = function run (siteName, siteType, url) {
 
     sendToGraphite(metrics)
 	// TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
-	console.log(metrics)
+	// console.log(metrics)
 
 	return metrics
   }).catch(err => {
