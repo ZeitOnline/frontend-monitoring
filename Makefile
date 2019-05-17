@@ -13,4 +13,4 @@ test:
 .PHONY: k8s
 k8s:
 	docker push ${REGISTRY}/a11y-dashbord-connector:${REV}
-	sed -E 's,"${REGISTRY}/a11y-dashbord-connector:.*\"','"${REGISTRY}/a11y-dashbord-connector:${REV}",' k8s/cron-job.json | kubectl apply -f -
+	KUBECONFIG=$(CURDIR)/k8s/kube.config:$(HOME)/.kube/config sed -E 's,"${REGISTRY}/a11y-dashbord-connector:.*\"','"${REGISTRY}/a11y-dashbord-connector:${REV}",' k8s/cron-job.json | kubectl apply -f -

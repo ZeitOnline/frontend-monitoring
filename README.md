@@ -26,12 +26,7 @@ Next, go ahead and play with the scripts. Output is generated to the console and
 * [Install gcloud SDK](https://cloud.google.com/sdk/)
 * [Init gcloud SDK](https://cloud.google.com/sdk/docs/quickstart-mac-os-x#initialize_the_sdk)
 * [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-* Connect to the K8s Cluster
-  * therefore run `gcloud container clusters get-credentials zon-misc-prod-1 --zone europe-west3-a --project zeitonline-gke-misc-prod` in your commandline
-* Set the Kubectl Context 
-  * therefore run `kubectl config set-context a11y-connector-production --cluster=gke_zeitonline-gke-misc-prod_europe-west3-a_zon-misc-prod-1 --user=gke_zeitonline-gke-misc-prod_europe-west3-a_zon-misc-prod-1 --namespace=a11y-connector` in your commandline
-* Use the Context
-  * run `kubectl config use-context a11y-connector-production` in y our commandline
+* Connect to the K8s Cluster by running `gcloud container clusters get-credentials zon-misc-prod-1 --zone europe-west3-a --project zeitonline-gke-misc-prod` in your commandline
 
 ### Build Docker Image and Deploy to K8s
 
