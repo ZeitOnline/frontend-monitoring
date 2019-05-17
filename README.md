@@ -32,9 +32,9 @@ Next, go ahead and play with the scripts. Output is generated to the console and
 
 | Command | What's happening? |
 | ------  | --------- |
-| `make build` | generate new Docker-Image with current revision |
-| `make test`  | run most recent Docker-Image based on revision  |
-| `make k8s`   | deploy most recent Docker-Image based on revision to Kubernetes-Cluster as a Cronjob|
+| `bin/build` | generate new Docker-Image with current revision |
+| `bin/test` | run most recent Docker-Image based on revision  |
+| `bin/deploy` | deploy most recent Docker-Image based on revision to Kubernetes-Cluster as a Cronjob|
 
 The Cronjob is accessible through the [Kubernetes-Dashboard](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector) (view logs etc.)
 
