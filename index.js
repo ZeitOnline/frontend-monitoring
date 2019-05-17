@@ -15,6 +15,21 @@ const URLS = {
     'homepage': 'https://www.zeit.de/index',
     'article': 'https://www.zeit.de/politik/ausland/2018-04/james-comey-donald-trump-fbi-ermittlungen-russlandaffaere',
     'ressort': 'https://www.zeit.de/politik/index'
+  },
+  'zeit-arbeit': {
+    'homepage': 'https://www.zeit.de/arbeit/index',
+    'article': 'https://www.zeit.de/arbeit/2019-05/eugh-eu-staaten-muessen-arbeitgeber-zur-zeiterfassung-verpflichten-kommentar',
+    'ressort': 'https://www.zeit.de/thema/selbstverwirklichung'
+  },
+  'zeit-campus': {
+    'homepage': 'https://www.zeit.de/campus/index',
+    'article': 'https://www.zeit.de/campus/2018/05/wohnungsmarkt-wohnen-mietpreise-tiny-house-wohnheim-helfen-pendeln',
+    'ressort': 'https://www.zeit.de/thema/liebe-und-sex'
+  },
+  'zeit-magazin': {
+    'homepage': 'https://www.zeit.de/zeit-magazin/index',
+    'article': 'https://www.zeit.de/zeit-magazin/leben/2019-05/apnoetauchen-freitauchen-anna-von-boetticher-extremsport-weltrekorde',
+    'ressort': 'https://www.zeit.de/zeit-magazin/leben/index'
   }
 }
 
