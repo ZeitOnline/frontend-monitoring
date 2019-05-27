@@ -95,6 +95,22 @@ for (let type in URLS[site]) {
   })
 }
 
+// ********************************************************************
+// Lighthouse
+// ********************************************************************
+const lighthouse = require('./src/checks/lighthouse/check')
+
+for (let site in URLS) {
+  for (let type in URLS[site]) {
+    if (site.indexOf('-de') >= -1 && type == "homepage") {
+        const url = URLS[site][type]
+        lighthouse.run(site, type, url).then(() => {
+            console.log(`Finished lighthouse for ${url}`)
+        })
+    }
+  }
+}
+
 
 /*
 // ********************************************************************
