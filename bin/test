@@ -1,0 +1,6 @@
+#!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd ${DIR}/..
+REV=$(git describe --tags)
+PROJECT=registry.zeit.de/a11y-dashbord-connector
+docker run ${PROJECT}:${REV}
