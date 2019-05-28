@@ -16,7 +16,7 @@ RUN groupadd -r pa11y && useradd -r -g pa11y -G audio,video pa11y \
 USER pa11y
 
 WORKDIR /home/pa11y/app
-COPY package.json index.js ./
+COPY package.json package.json
 COPY src src
 RUN mkdir reports
 
