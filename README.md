@@ -102,3 +102,8 @@ Now you may run `yarn start`.
 - Make the test result/console output available, if possible. We want know instantly, what "n HTML errors on page X" means.
 - axe for analyses: reports good parse-able advice (Violation of "color-contrast" with 108 occurrences!)
 - exclude elements like ads (look for "hide elements" in https://bitsofco.de/pa11y/) ... if this makes sense. Maybe as an extra report: issues with and without ads ?
+
+### Questions
+
+- Is it necessary that every check returns a promise? How do we handle that?
+- What happens with e.g. the mobile parameter? Some tools support it, some don't. Must re repsect that in our grafite namespace? Where shall that happen? In the filter?
