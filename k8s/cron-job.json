@@ -13,8 +13,19 @@
           "spec": {
             "containers": [
               {
-                "name": "a11y-dashbord-connector",
-                "image": "registry.zeit.de/a11y-dashbord-connector:v0.1"
+                "name": "pa11y",
+                "image": "registry.zeit.de/a11y-dashbord-connector:v0.1",
+                "command": ["npm", "run", "pa11y"]
+              },
+              {
+                "name": "cssstats",
+                "image": "registry.zeit.de/a11y-dashbord-connector:v0.1",
+                "command": ["npm", "run", "cssstats"]
+              },
+              {
+                "name": "htmlvalidator",
+                "image": "registry.zeit.de/a11y-dashbord-connector:v0.1",
+                "command": ["npm", "run", "htmlvalidator"]
               }
             ],
             "restartPolicy": "OnFailure"
