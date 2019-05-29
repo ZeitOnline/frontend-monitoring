@@ -36,6 +36,12 @@ Next, go ahead and play with the scripts. Output is generated to the console and
 | `bin/test` | run most recent Docker-Image based on revision  |
 | `bin/deploy` | deploy most recent Docker-Image based on revision to Kubernetes-Cluster as a Cronjob|
 
+Multiple Cronjobs for every task are created. Currently they are all prefixed with `a11y-dashboard-connector`.
+They are accessible through the Dashboard.
+[pa11y Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector-pa11y)
+[cssstats Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector-cssstats)
+[htmlvalidator Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector-htmlvalidator)
+
 The Cronjob is accessible through the [Kubernetes-Dashboard](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector) (view logs etc.)
 
 In case you messed up your context via other projects, and get the error `context was not found`, repeating the [deployment prerequisites](https://github.com/ZeitOnline/a11y-dashboard-connector#deployment-prerequisites) commands should help.

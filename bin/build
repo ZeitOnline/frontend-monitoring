@@ -3,4 +3,4 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd ${DIR}/..
 REV=$(git describe --tags)
 PROJECT=registry.zeit.de/a11y-dashbord-connector
-docker build --no-cache --tag ${PROJECT}:${REV} .
+docker build --tag ${PROJECT}:${REV} .
