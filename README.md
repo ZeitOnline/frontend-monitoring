@@ -1,4 +1,4 @@
-# a11y-dashboard-connector
+# ZON Frontend Monitoring
 Run competetive Accessibility and Quality checks and send them to a Graphite db
 
 ## Quickstart for local development
@@ -44,7 +44,7 @@ They are accessible through the Dashboard.
 
 The Cronjob is accessible through the [Kubernetes-Dashboard](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector) (view logs etc.)
 
-In case you messed up your context via other projects, and get the error `context was not found`, repeating the [deployment prerequisites](https://github.com/ZeitOnline/a11y-dashboard-connector#deployment-prerequisites) commands should help.
+In case you messed up your context via other projects, and get the error `context was not found`, repeating the [deployment prerequisites](https://github.com/ZeitOnline/frontend-monitoring#deployment-prerequisites) commands should help.
 
 ## Checks
 

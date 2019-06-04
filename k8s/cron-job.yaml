@@ -2,7 +2,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: a11y-dashbord-connector-pa11y
+  name: frontend-monitoring-pa11y
 spec:
   concurrencyPolicy: Forbid
   schedule: "*/15 * * * *"
@@ -12,7 +12,7 @@ spec:
         spec:
           containers:
           - name: pa11y
-            image: registry.zeit.de/a11y-dashbord-connector:v0.1
+            image: registry.zeit.de/frontend-monitoring:v0.1
             command:
             - npm
             - run
@@ -22,7 +22,7 @@ spec:
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: a11y-dashbord-connector-cssstats
+  name: frontend-monitoring-cssstats
 spec:
   concurrencyPolicy: Forbid
   schedule: "*/15 * * * *"
@@ -32,7 +32,7 @@ spec:
         spec:
           containers:
           - name: cssstats
-            image: registry.zeit.de/a11y-dashbord-connector:v0.1
+            image: registry.zeit.de/frontend-monitoring:v0.1
             command:
             - npm
             - run
@@ -42,7 +42,7 @@ spec:
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: a11y-dashbord-connector-htmlvalidator
+  name: frontend-monitoring-htmlvalidator
 spec:
   concurrencyPolicy: Forbid
   schedule: "*/15 * * * *"
@@ -52,7 +52,7 @@ spec:
         spec:
           containers:
           - name: htmlvalidator
-            image: registry.zeit.de/a11y-dashbord-connector:v0.1
+            image: registry.zeit.de/frontend-monitoring:v0.1
             command:
             - npm
             - run
