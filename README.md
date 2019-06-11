@@ -1,4 +1,4 @@
-# a11y-dashboard-connector
+# ZON Frontend Monitoring
 Run competetive Accessibility and Quality checks and send them to a Graphite db
 
 ## Quickstart for local development
@@ -36,9 +36,15 @@ Next, go ahead and play with the scripts. Output is generated to the console and
 | `bin/test` | run most recent Docker-Image based on revision  |
 | `bin/deploy` | deploy most recent Docker-Image based on revision to Kubernetes-Cluster as a Cronjob|
 
+Multiple Cronjobs for every task are created. Currently they are all prefixed with `a11y-dashboard-connector`.
+They are accessible through the Dashboard.
+[pa11y Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector-pa11y)
+[cssstats Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector-cssstats)
+[htmlvalidator Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector-htmlvalidator)
+
 The Cronjob is accessible through the [Kubernetes-Dashboard](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector) (view logs etc.)
 
-In case you messed up your context via other projects, and get the error `context was not found`, repeating the [deployment prerequisites](https://github.com/ZeitOnline/a11y-dashboard-connector#deployment-prerequisites) commands should help.
+In case you messed up your context via other projects, and get the error `context was not found`, repeating the [deployment prerequisites](https://github.com/ZeitOnline/frontend-monitoring#deployment-prerequisites) commands should help.
 
 ## Checks
 
@@ -102,3 +108,8 @@ Now you may run `yarn start`.
 - Make the test result/console output available, if possible. We want know instantly, what "n HTML errors on page X" means.
 - axe for analyses: reports good parse-able advice (Violation of "color-contrast" with 108 occurrences!)
 - exclude elements like ads (look for "hide elements" in https://bitsofco.de/pa11y/) ... if this makes sense. Maybe as an extra report: issues with and without ads ?
+
+### Questions
+
+- Is it necessary that every check returns a promise? How do we handle that?
+- What happens with e.g. the mobile parameter? Some tools support it, some don't. Must re repsect that in our grafite namespace? Where shall that happen? In the filter?

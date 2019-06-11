@@ -1,0 +1,60 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: frontend-monitoring-pa11y
+spec:
+  concurrencyPolicy: Forbid
+  schedule: "*/15 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: pa11y
+            image: registry.zeit.de/frontend-monitoring:v0.1
+            command:
+            - npm
+            - run
+            - pa11y
+          restartPolicy: OnFailure
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: frontend-monitoring-cssstats
+spec:
+  concurrencyPolicy: Forbid
+  schedule: "*/15 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cssstats
+            image: registry.zeit.de/frontend-monitoring:v0.1
+            command:
+            - npm
+            - run
+            - cssstats
+          restartPolicy: OnFailure
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: frontend-monitoring-htmlvalidator
+spec:
+  concurrencyPolicy: Forbid
+  schedule: "*/15 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: htmlvalidator
+            image: registry.zeit.de/frontend-monitoring:v0.1
+            command:
+            - npm
+            - run
+            - htmlvalidator
+          restartPolicy: OnFailure

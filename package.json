@@ -1,10 +1,10 @@
 {
-  "name": "a11y-dashboard",
+  "name": "frontend-monitoring",
   "version": "1.1.0",
-  "main": "index.js",
   "author": "Valentin von Guttenberg <greengiraffe@posteo.de>",
   "contributors": [
-    "Thomas Puppe <info@thomaspuppe.de>"
+    "Thomas Puppe <info@thomaspuppe.de>",
+    "Hennes Römmer <hello@hennes.me>"
   ],
   "license": "MIT",
   "dependencies": {
@@ -16,7 +16,11 @@
     "pa11y": "^5.0.3"
   },
   "scripts": {
-    "start": "node index.js"
+    "cssstats": "node src/checks/cssstats/index.js",
+    "htmlvalidator": "node src/checks/html-validator/index.js",
+    "pa11y": "node src/checks/pa11y/index.js",
+    "webcoach": "node src/checks/webcoach/index.js",
+    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run webcoach"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

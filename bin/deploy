@@ -3,11 +3,11 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 REV=$(git describe --tags)
-PROJECT=registry.zeit.de/a11y-dashbord-connector
+PROJECT=registry.zeit.de/frontend-monitoring
 
 docker push ${PROJECT}:${REV}
 
 export KUBECONFIG=${DIR}/../k8s/kube.config:${HOME}/.kube/config
 
-sed "s,\"${PROJECT}:.*\",\"${PROJECT}:${REV}\"," ${DIR}/../k8s/cron-job.json \
+sed "s,${PROJECT}:.*,${PROJECT}:${REV}," ${DIR}/../k8s/cron-job.yaml \
     | kubectl apply -f -
