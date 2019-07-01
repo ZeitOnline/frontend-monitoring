@@ -9,17 +9,19 @@ fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst ttf-freefont \
 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget && \
 apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /home/pa11y/app
-RUN groupadd -r pa11y && useradd -r -g pa11y -G audio,video pa11y \
-    && chown -R pa11y:pa11y /home/pa11y
+RUN mkdir -p /home/fe_monitoring/app
+RUN groupadd -r fe_monitoring && useradd -r -g fe_monitoring -G audio,video fe_monitoring \
+    && chown -R fe_monitoring:fe_monitoring /home/fe_monitoring
 
-USER pa11y
+RUN adduser fe_monitoring sudo
 
-WORKDIR /home/pa11y/app
+USER fe_monitoring
+
+WORKDIR /home/fe_monitoring/app
 COPY package.json package.json
 COPY src src
 RUN mkdir reports
 
 RUN npm install --production
 
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "sitespeed" ]

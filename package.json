@@ -12,19 +12,24 @@
   },
   "license": "MIT",
   "dependencies": {
-    "async": "^3.0.1",
+    "@sitespeed.io/throttle": "^0.5.1",
+    "async": "^2.6.2",
     "cssstats": "^3.3.0",
     "get-css": "^3.3.0",
     "graphite": "^0.1.2",
     "html-validator": "^4.0.3",
-    "pa11y": "^5.0.3"
+    "pa11y": "^5.0.3",
+    "sitespeed.io": "^9.1.0"
   },
   "scripts": {
     "cssstats": "node src/checks/cssstats/index.js",
     "htmlvalidator": "node src/checks/html-validator/index.js",
     "pa11y": "node src/checks/pa11y/index.js",
     "webcoach": "node src/checks/webcoach/index.js",
-    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run webcoach"
+    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run webcoach",
+    "sitespeed": "node src/checks/sitespeed/index.js",
+    "sitespeed:3g": "throttle 3g && npm run sitespeed && throttle stop",
+    "sitespeed:cable": "throttle cable && npm run sitespeed && throttle stop"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

@@ -1,0 +1,24 @@
+{
+    "firstParty": ".zeit.de",
+    "browsertime": {
+        "iterations": 5,
+        "browser": "chrome",
+        "speedIndex": true,
+        "cacheClearRaw": true,
+        "viewPort": " 1920x1080"
+    },
+    "graphite": {
+        "host": "217.13.69.14",
+        "namespace": "sitespeed_io.default"
+    },
+    "slack": {
+        "hookUrl": "https://hooks.slack.com/services/MY_SERVICE"
+    },
+    "resultBaseURL": "https://sitespeed.zeit.de",
+    "video": false,
+    "gzipHAR": true,
+    "outputFolder": "./reports/sitespeed",
+    "html": {
+        "fetchHARFiles": true
+    }
+}
