@@ -17,6 +17,7 @@
     "get-css": "^3.3.0",
     "graphite": "^0.1.2",
     "html-validator": "^4.0.3",
+    "jsdom": "^15.1.1",
     "pa11y": "^5.0.3"
   },
   "scripts": {
@@ -24,7 +25,8 @@
     "htmlvalidator": "node src/checks/html-validator/index.js",
     "pa11y": "node src/checks/pa11y/index.js",
     "webcoach": "node src/checks/webcoach/index.js",
-    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run webcoach"
+    "homepagestats": "node src/checks/homepagestats/index.js",
+    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run webcoach"
   },
   "devDependencies": {
     "eslint": "^6.1.0",

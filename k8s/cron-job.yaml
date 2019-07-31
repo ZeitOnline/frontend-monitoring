@@ -58,3 +58,23 @@ spec:
             - run
             - htmlvalidator
           restartPolicy: OnFailure
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: frontend-monitoring-homepagestats
+spec:
+  concurrencyPolicy: Forbid
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: homepagestats
+            image: registry.zeit.de/frontend-monitoring:v0.1
+            command:
+            - npm
+            - run
+            - homepagestats
+          restartPolicy: OnFailure
