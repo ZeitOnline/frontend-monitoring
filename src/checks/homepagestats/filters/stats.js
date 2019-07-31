@@ -19,7 +19,8 @@ module.exports = dom => {
     numberOfMobileAds: sel('script[id^="ad-mobile-"]'),
     specials: {
         wiegehtesihnen: sel('script[src^="https://interactive.zeit.de/wiegehtesihnen/"]'),
-        quiz: sel('iframe[src^="https://quiz.zeit.de/"]')
+        quiz: sel('iframe[src^="https://quiz.zeit.de/"]'),
+        panorama: sel('article.zon-teaser-panorama')
     }
   }
 }
