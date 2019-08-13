@@ -20,7 +20,9 @@ module.exports = dom => {
     specials: {
         wiegehtesihnen: sel('script[src^="https://interactive.zeit.de/wiegehtesihnen/"]'),
         quiz: sel('iframe[src^="https://quiz.zeit.de/"]'),
-        panorama: sel('article.zon-teaser-panorama')
+        panorama: sel('article.zon-teaser-panorama'),
+        'zg-aufmacher': sel('.cp-region:first-child article[class^="zg-"]'),
+        'zg-teaser': sel('.cp-region:not(:first-child) article[class^="zg-"]')
     }
   }
 }
