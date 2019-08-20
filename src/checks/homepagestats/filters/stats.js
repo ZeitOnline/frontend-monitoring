@@ -23,7 +23,8 @@ module.exports = dom => {
         panorama: sel('article.zon-teaser-panorama'),
         'zg-aufmacher': sel('.cp-region:first-child article[class^="zg-"]'),
         'zg-teaser': sel('.cp-region:not(:first-child) article[class^="zg-"]'),
-        optimize: sel('script[src$="ga_optimize.js"')
+        optimize: sel('script[src$="ga_optimize.js"'),
+        kickerticker: sel('.zg-kickerticker')
     }
   }
 }
