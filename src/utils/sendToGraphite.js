@@ -8,7 +8,7 @@ const graphite = require('graphite')
 
 module.exports = function (metrics) {
 
-  const client = graphite.createClient('plaintext://sitespeed-graphite-data.zeit.de:2003/')
+  const client = graphite.createClient('plaintext://sitespeed-graphite-data.ops.zeit.de:2003/')
   client.write(metrics, function (error) {
     if (typeof error !== 'undefined') {
       console.error(error)
