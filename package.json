@@ -16,17 +16,21 @@
     "cssstats": "^3.3.0",
     "get-css": "^3.3.0",
     "graphite": "^0.1.2",
+    "hint": "^6.0.3",
     "html-validator": "^4.0.3",
     "jsdom": "^15.1.1",
-    "pa11y": "^5.0.3"
+    "pa11y": "^5.0.3",
+    "puppeteer": "^2.0.0"
   },
   "scripts": {
     "cssstats": "node src/checks/cssstats/index.js",
     "htmlvalidator": "node src/checks/html-validator/index.js",
     "pa11y": "node src/checks/pa11y/index.js",
     "webcoach": "node src/checks/webcoach/index.js",
+    "webhint": "node src/checks/webhint/index.js",
     "homepagestats": "node src/checks/homepagestats/index.js",
-    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run webcoach"
+    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run webcoach",
+    "foo": "hint https://www.zeit.de/index"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
