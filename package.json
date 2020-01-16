@@ -16,8 +16,8 @@
     "cssstats": "^3.3.0",
     "get-css": "^3.3.0",
     "graphite": "^0.1.2",
-    "html-validator": "^4.0.3",
-    "jsdom": "^15.1.1",
+    "html-validator": "^5.0.0",
+    "jsdom": "^16.0.0",
     "pa11y": "^5.0.3"
   },
   "scripts": {
@@ -32,7 +32,7 @@
     "eslint": "^6.1.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0"
   }
