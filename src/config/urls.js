@@ -28,9 +28,6 @@ const URLS = {
     'homepage': 'https://www.zeit.de/zeit-magazin/index',
     'article': 'https://www.zeit.de/zeit-magazin/leben/2019-05/apnoetauchen-freitauchen-anna-von-boetticher-extremsport-weltrekorde',
     'ressort': 'https://www.zeit.de/zeit-magazin/leben/index'
-  },
-  'zeit-rebrush': {
-    'homepage': 'https://www.zeit.de/index-rebrush'
   }
 }
 
