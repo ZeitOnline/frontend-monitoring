@@ -10,9 +10,14 @@ exports = module.exports = {}
 
 exports.run = function run (siteName, siteType, url) {
 
+    const resourceLoader = new jsdom.ResourceLoader({
+      userAgent: "ZONFrontendMonitoring",
+    })
+
     const options = {
         includeNodeLocations: true,
-        storageQuota: 10000000
+        storageQuota: 10000000,
+        resources: resourceLoader
     }
 
     return JSDOM.fromURL(url, options).then(dom => {

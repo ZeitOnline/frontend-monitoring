@@ -10,7 +10,8 @@ exports = module.exports = {}
 exports.run = function run (siteName, siteType, url) {
 
 	return validator({
-		url: url
+		url: url,
+        headers: { "user-agent": "ZONFrontendMonitoring" }
 	})
 	.then((results) => {
 		const stats = statsFilter(JSON.parse(results))

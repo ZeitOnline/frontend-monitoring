@@ -20,7 +20,8 @@ exports.run = function run (siteName, siteType, url) {
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage'
+        '--disable-dev-shm-usage',
+        '--useragent "ZONFrontendMonitoring"'
       ]
     }
   }).then(results => {
