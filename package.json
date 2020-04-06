@@ -17,7 +17,7 @@
     "get-css": "^3.3.0",
     "graphite": "^0.1.2",
     "html-validator": "^5.0.0",
-    "jsdom": "^15.1.1",
+    "jsdom": "^16.2.2",
     "pa11y": "^5.0.3"
   },
   "scripts": {
