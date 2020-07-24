@@ -47,7 +47,7 @@ exports.run = function run (siteName, siteType, url) {
 }
 
 function getCompleteCss (files) {
-  let cssList = []
+  const cssList = []
   for (const file of files) {
     if (file.url.startsWith('https://static.zeit.de/assets/') && !file.url.endsWith('print.css')) {
       cssList.push(file.css)

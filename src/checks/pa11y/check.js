@@ -10,8 +10,8 @@ const numberOfSpecificIssueFilter = require('./filters/numberOfSpecificIssue')
 exports = module.exports = {}
 
 exports.run = function run (siteName, siteType, url) {
-
   return pa11y(url, {
+    userAgent: 'ZONFrontendMonitoring',
     includeNotices: true,
     includeWarnings: true,
     wait: 3000,
@@ -37,17 +37,17 @@ exports.run = function run (siteName, siteType, url) {
           [siteType]: {
             stats,
             topIssues,
-            'numberOfContrastErrors': numberOfContrastErrors
+            numberOfContrastErrors: numberOfContrastErrors
           }
         }
       }
     }
 
     sendToGraphite(metrics)
-	// TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
-	// console.log(metrics)
+    // TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
+    // console.log(metrics)
 
-	return metrics
+    return metrics
   }).catch(err => {
     console.error(err)
   })
