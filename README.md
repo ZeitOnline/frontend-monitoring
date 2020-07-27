@@ -5,7 +5,7 @@ Run competetive Accessibility and Quality checks and send them to a Graphite db
 
 Do the `yarn install` and `yarn start`. The tests will run and print some results to your console.
 
-Next, go ahead and play with the scripts. Output is generated to the console and into the `reports`folder. Whatever crazy thing you invent – if you are inside the ZON network, your stats will instantly be available on http://sitespeed.zeit.de/dashboard/db/accessibility-dashboard?refresh=5m&orgId=1 .
+Next, go ahead and play with the scripts. Output is generated to the console and into the `reports`folder. Whatever crazy thing you invent – if you are inside the ZON network, your stats will instantly be available on https://grafana.ops.zeit.de/d/yqzo0fpZk/accessibility?orgId=1 .
 
 
 ## High level overview
