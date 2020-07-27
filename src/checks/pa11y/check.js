@@ -1,4 +1,5 @@
 const pa11y = require('pa11y')
+const CONFIG = require('../../config/config')
 
 const saveRawData = require('./../../utils/saveRawData')
 const sendToGraphite = require('./../../utils/sendToGraphite')
@@ -11,7 +12,7 @@ exports = module.exports = {}
 
 exports.run = function run (siteName, siteType, url) {
   return pa11y(url, {
-    userAgent: 'ZONFrontendMonitoring',
+    userAgent: CONFIG.userAgent,
     includeNotices: true,
     includeWarnings: true,
     wait: 3000,
@@ -21,7 +22,7 @@ exports.run = function run (siteName, siteType, url) {
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage',
-        '--useragent "ZONFrontendMonitoring"'
+        '--useragent "' + CONFIG.userAgent + '"'
       ]
     }
   }).then(results => {

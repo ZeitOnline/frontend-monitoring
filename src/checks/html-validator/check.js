@@ -1,4 +1,5 @@
 const validator = require('html-validator')
+const CONFIG = require('../../config/config')
 
 const saveRawData = require('./../../utils/saveRawData')
 const sendToGraphite = require('./../../utils/sendToGraphite')
@@ -10,7 +11,7 @@ exports = module.exports = {}
 exports.run = function run (siteName, siteType, url) {
   return validator({
     url: url,
-    headers: { 'user-agent': 'ZONFrontendMonitoring' }
+    headers: { 'user-agent': CONFIG.userAgent }
   }).then((results) => {
     const stats = statsFilter(JSON.parse(results))
 

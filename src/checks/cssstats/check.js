@@ -5,13 +5,14 @@ const saveRawData = require('./../../utils/saveRawData')
 const sendToGraphite = require('./../../utils/sendToGraphite')
 
 const statsFilter = require('./filters/stats')
+const CONFIG = require('../../config/config')
 
 exports = module.exports = {}
 
 exports.run = function run (siteName, siteType, url) {
   return getCss(url, {
     headers: {
-      'User-Agent': 'ZONFrontendMonitoring'
+      'User-Agent': CONFIG.userAgent
     }
   }).then(function (response) {
     const css = getCompleteCss(response.links)

@@ -1,5 +1,6 @@
 const jsdom = require('jsdom')
 const { JSDOM } = jsdom
+const CONFIG = require('../../config/config')
 
 // const saveRawData = require('./../../utils/saveRawData')
 const sendToGraphite = require('./../../utils/sendToGraphite')
@@ -10,7 +11,7 @@ exports = module.exports = {}
 
 exports.run = function run (siteName, siteType, url) {
   const resourceLoader = new jsdom.ResourceLoader({
-    userAgent: 'ZONFrontendMonitoring'
+    userAgent: CONFIG.userAgent
   })
 
   const options = {
