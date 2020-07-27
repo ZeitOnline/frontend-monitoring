@@ -38,11 +38,10 @@ Next, go ahead and play with the scripts. Output is generated to the console and
 
 Multiple Cronjobs for every task are created. Currently they are all prefixed with `a11y-dashboard-connector`.
 They are accessible through the Dashboard.
-[pa11y Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector-pa11y)
-[cssstats Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector-cssstats)
-[htmlvalidator Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector-htmlvalidator)
-
-The Cronjob is accessible through the [Kubernetes-Dashboard](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/a11y-connector/a11y-dashbord-connector) (view logs etc.)
+[pa11y Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/frontend-monitoring/frontend-monitoring-pa11y/details?project=zeitonline-gke-misc-prod)
+[cssstats Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/frontend-monitoring/frontend-monitoring-cssstats/details?project=zeitonline-gke-misc-prod)
+[htmlvalidator Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/frontend-monitoring/frontend-monitoring-htmlvalidator/details?project=zeitonline-gke-misc-prod)
+[homepagestats Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/frontend-monitoring/frontend-monitoring-homepagestats/details?project=zeitonline-gke-misc-prod)
 
 In case you messed up your context via other projects, and get the error `context was not found`, repeating the [deployment prerequisites](https://github.com/ZeitOnline/frontend-monitoring#deployment-prerequisites) commands should help.
 
