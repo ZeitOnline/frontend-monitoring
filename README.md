@@ -42,6 +42,7 @@ They are accessible through the Dashboard.
 [cssstats Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/frontend-monitoring/frontend-monitoring-cssstats/details?project=zeitonline-gke-misc-prod)
 [htmlvalidator Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/frontend-monitoring/frontend-monitoring-htmlvalidator/details?project=zeitonline-gke-misc-prod)
 [homepagestats Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/frontend-monitoring/frontend-monitoring-homepagestats/details?project=zeitonline-gke-misc-prod)
+[adplaces Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/frontend-monitoring/frontend-monitoring-adplaces/details?project=zeitonline-gke-misc-prod)
 
 In case you messed up your context via other projects, and get the error `context was not found`, repeating the [deployment prerequisites](https://github.com/ZeitOnline/frontend-monitoring#deployment-prerequisites) commands should help.
 
