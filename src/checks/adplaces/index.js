@@ -14,7 +14,8 @@ const SITES = {
     'sport': 'https://www.zeit.de/sport/index',
     'zeit-magazin': 'https://www.zeit.de/zeit-magazin/index',
     'serie': 'https://www.zeit.de/serie/kiyaks-deutschstunde',
-    'autor': 'https://www.zeit.de/autoren/F/Oliver_Fritsch/index.xml'
+    'autor': 'https://www.zeit.de/autoren/F/Oliver_Fritsch/index.xml',
+    'thema': 'https://www.zeit.de/thema/coronavirus'
 }
 
 for (const [label, url] of Object.entries(SITES)) {
