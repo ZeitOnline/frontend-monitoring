@@ -25,15 +25,17 @@ exports.run = function run (label, url) {
     // console.log(stats)
 
     const metrics = {
-      adplaces: {
-        [label]: {
+      frontendmonitoring: {
+        adplaces: {
+          [label]: {
             stats
+          }
         }
       }
     }
 
     sendToGraphite(metrics)
-    saveRawData(stats, `zeit_${label}_homepagestats`)
+    saveRawData(stats, `zeit_${label}_adplaces`)
     // TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
     // console.log(metrics)
 
