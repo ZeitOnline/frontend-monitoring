@@ -16,8 +16,8 @@ RUN groupadd -r pa11y && useradd -r -g pa11y -G audio,video pa11y \
 USER pa11y
 
 WORKDIR /home/pa11y/app
-COPY package.json package.json
-COPY src src
+COPY --chown=pa11y package.json package.json
+COPY --chown=pa11y src src
 RUN mkdir reports
 
 RUN npm install --production
