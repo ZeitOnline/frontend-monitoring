@@ -25,11 +25,9 @@ exports.run = function run (label, url) {
     // console.log(stats)
 
     const metrics = {
-      frontendmonitoring: {
-        adplaces: {
-          [label]: {
-            stats
-          }
+      adplaces: {
+        [label]: {
+          stats
         }
       }
     }
