@@ -31,8 +31,22 @@ exports.run = function run (label, url) {
         }
       }
     }
-
     sendToGraphite(metrics)
+
+    // currently (dec 2020) we have some trouble with the graphite buckets,
+    // so I put the data into two of them until it works
+    const metrics2 = {
+      frontendmonitoring: {
+        adplaces: {
+          [label]: {
+            stats
+          }
+        }
+      }
+    }
+    sendToGraphite(metrics2)
+
+
     saveRawData(stats, `zeit_${label}_adplaces`)
     // TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
     // console.log(metrics)
