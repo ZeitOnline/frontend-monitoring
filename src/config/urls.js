@@ -29,6 +29,11 @@ const URLS = {
     'article': 'https://www.zeit.de/zeit-magazin/leben/2019-05/apnoetauchen-freitauchen-anna-von-boetticher-extremsport-weltrekorde',
     'ressort': 'https://www.zeit.de/zeit-magazin/leben/index'
   },
+  'zeit-zett': {
+    'homepage': 'https://www.zeit.de/zett/index',
+    'article': 'https://www.zeit.de/zett/liebe-sex/2020-12/antimuslimischer-rassismus-pornografie-hijab-pornos-fetisch-sexismus',
+    'ressort': 'https://www.zeit.de/zett/index'
+  },
   'zeit-pure': {
     'homepage': 'https://www.zeit.de/zustimmung',
     'article': 'https://www.zeit.de/impressum/index'

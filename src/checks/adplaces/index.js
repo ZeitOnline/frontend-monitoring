@@ -13,6 +13,7 @@ const SITES = {
     'entdecken': 'https://www.zeit.de/entdecken/index',
     'sport': 'https://www.zeit.de/sport/index',
     'zeit-magazin': 'https://www.zeit.de/zeit-magazin/index',
+    'zett': 'https://www.zeit.de/zett/index',
     'serie': 'https://www.zeit.de/serie/kiyaks-deutschstunde',
     'autor': 'https://www.zeit.de/autoren/F/Oliver_Fritsch/index.xml',
     'thema': 'https://www.zeit.de/thema/coronavirus'
