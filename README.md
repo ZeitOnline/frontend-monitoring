@@ -1,4 +1,7 @@
 # ZON Frontend Monitoring
+
+[![Build Status](https://drone.ops.zeit.de/api/badges/ZeitOnline/frontend-monitoring/status.svg)](https://drone.ops.zeit.de/ZeitOnline/frontend-monitoring)
+
 Run competetive Accessibility and Quality checks and send them to a Graphite db
 
 ## Quickstart for local development
