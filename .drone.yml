@@ -1,0 +1,47 @@
+kind: pipeline
+name: default
+
+trigger:
+  event:
+    include:
+    - push
+
+steps:
+- name: build
+  image: plugins/gcr
+  settings:
+    registry: eu.gcr.io
+    repo: zeitonline-210413/frontend-monitoring
+    tags:
+      - latest
+      - ${DRONE_COMMIT}
+    environment:
+      VERSION: "${DRONE_COMMIT}"
+    json_key:
+      from_secret: gcp_service_account
+  volumes:
+    - name: docker
+      path: /var/run/docker.sock
+
+- name: deploy
+  image: registry.zeit.de/zon-drone-kubectl:1.2.0
+  settings:
+    project: zeitonline-gke-misc-prod
+    zone: europe-west3-a
+    cluster: zon-misc-prod-1
+    gcp_credentials:
+      from_secret: gcp_service_account
+  commands:
+    - pushd k8s/ && kustomize edit set image eu.gcr.io/zeitonline-210413/frontend-monitoring:${DRONE_COMMIT} && popd
+    - kubectl --namespace frontend-monitoring --kustomize k8s/
+
+volumes:
+- name: docker
+  host:
+    path: /var/run/docker.sock
+
+kind: secret
+name: gcp_service_account
+get:
+  path: /zon/v1/gcp/zeitonline-gke-misc-prod/gke/production/ci/frontend-monitoring
+  name: key
