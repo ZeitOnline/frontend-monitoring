@@ -12,7 +12,7 @@ spec:
         spec:
           containers:
           - name: pa11y
-            image: registry.zeit.de/frontend-monitoring:v0.1
+            image: eu.gcr.io/zeitonline-210413/frontend-monitoring:v0.1
             command:
             - npm
             - run
@@ -32,7 +32,7 @@ spec:
         spec:
           containers:
           - name: cssstats
-            image: registry.zeit.de/frontend-monitoring:v0.1
+            image: eu.gcr.io/zeitonline-210413/frontend-monitoring:v0.1
             command:
             - npm
             - run
@@ -52,7 +52,7 @@ spec:
         spec:
           containers:
           - name: htmlvalidator
-            image: registry.zeit.de/frontend-monitoring:v0.1
+            image: eu.gcr.io/zeitonline-210413/frontend-monitoring:v0.1
             command:
             - npm
             - run
@@ -72,7 +72,7 @@ spec:
         spec:
           containers:
           - name: homepagestats
-            image: registry.zeit.de/frontend-monitoring:v0.1
+            image: eu.gcr.io/zeitonline-210413/frontend-monitoring:v0.1
             command:
             - npm
             - run
@@ -92,7 +92,7 @@ spec:
         spec:
           containers:
           - name: adplaces
-            image: registry.zeit.de/frontend-monitoring:v0.1
+            image: eu.gcr.io/zeitonline-210413/frontend-monitoring:v0.1
             command:
             - npm
             - run

@@ -32,7 +32,7 @@ steps:
     gcp_credentials:
       from_secret: gcp_service_account
   commands:
-    - pushd k8s/ && kustomize edit set image eu.gcr.io/zeitonline-210413/frontend-monitoring:${DRONE_COMMIT} && popd
+    - '(cd k8s/ && kustomize edit set image eu.gcr.io/zeitonline-210413/frontend-monitoring:${DRONE_COMMIT})'
     - kubectl apply --namespace frontend-monitoring --kustomize k8s/
 
 volumes:
