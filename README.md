@@ -31,13 +31,12 @@ Next, go ahead and play with the scripts. Output is generated to the console and
 * [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * Connect to the K8s Cluster by running `gcloud container clusters get-credentials zon-misc-prod-1 --zone europe-west3-a --project zeitonline-gke-misc-prod` in your commandline
 
-### Build Docker Image and Deploy to K8s
+### Build and test Docker Image
 
 | Command | What's happening? |
 | ------  | --------- |
 | `bin/build` | generate new Docker-Image with current revision |
 | `bin/test` | run most recent Docker-Image based on revision  |
-| `bin/deploy` | deploy most recent Docker-Image based on revision to Kubernetes-Cluster as a Cronjob|
 
 Multiple Cronjobs for every task are created. Currently they are all prefixed with `a11y-dashboard-connector`.
 They are accessible through the Dashboard.
@@ -48,6 +47,11 @@ They are accessible through the Dashboard.
 [adplaces Cronjob](https://console.cloud.google.com/kubernetes/cronjob/europe-west3-a/zon-misc-prod-1/frontend-monitoring/frontend-monitoring-adplaces/details?project=zeitonline-gke-misc-prod)
 
 In case you messed up your context via other projects, and get the error `context was not found`, repeating the [deployment prerequisites](https://github.com/ZeitOnline/frontend-monitoring#deployment-prerequisites) commands should help.
+
+### Deployment 
+
+Zu GitHub pushen und dann bei [https://drone.ops.zeit.de/ZeitOnline/frontend-monitoring/](https://drone.ops.zeit.de/ZeitOnline/frontend-monitoring/) zugucken. Login funktioniert via GitHub.
+
 
 ## Checks
 
