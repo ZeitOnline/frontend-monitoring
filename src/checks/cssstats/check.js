@@ -33,8 +33,23 @@ exports.run = function run (siteName, siteType, url) {
         }
       }
     }
-
     sendToGraphite(metrics)
+
+    // currently (dec 2020) we have some trouble with the graphite buckets,
+    // so I put the data into two of them until it works
+    const metrics2 = {
+      frontendmonitoring: {
+          cssstats: {
+            [siteName]: {
+              [siteType]: {
+                stats
+              }
+            }
+          }
+      }
+    }
+    sendToGraphite(metrics2)
+
     // TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
     // console.log(metrics)
 
@@ -50,7 +65,7 @@ exports.run = function run (siteName, siteType, url) {
 function getCompleteCss (files) {
   const cssList = []
   for (const file of files) {
-    if (file.url.startsWith('https://static.zeit.de/assets/') && !file.url.endsWith('print.css')) {
+    if (file.url.startsWith('https://static.zeit.de/p/') && !file.url.endsWith('print.css')) {
       cssList.push(file.css)
     }
   }
