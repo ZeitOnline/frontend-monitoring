@@ -19,7 +19,7 @@ module.exports = dom => {
   ]
 
   for (const ad of adtilesToCheck) {
-    result[ad] = sel(`script[id^="${ad}"]`)
+    result[ad] = sel(`script[id="${ad}"]`)
   }
 
   return result
