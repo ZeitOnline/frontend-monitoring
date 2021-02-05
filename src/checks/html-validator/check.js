@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 const validator = require('html-validator')
 const CONFIG = require('../../config/config')
 
@@ -8,32 +9,40 @@ const statsFilter = require('./filters/stats')
 
 exports = module.exports = {}
 
-exports.run = function run (siteName, siteType, url) {
-  return validator({
-    url: url,
-    headers: { 'user-agent': CONFIG.userAgent }
-  }).then((results) => {
-    const stats = statsFilter(JSON.parse(results))
+exports.run = async function run(siteName, siteType, url) {
 
-    saveRawData(results, `${siteName}_${siteType}_htmlvalidator`)
-
-    const metrics = {
-      htmlvalidator: {
-        [siteName]: {
-          [siteType]: {
-            stats
-          }
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            'User-Agent': CONFIG.userAgent
         }
-      }
-    }
+    });
+    const html = await response.text()
 
-    sendToGraphite(metrics)
-    // TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
-    // console.log(metrics)
+    return validator({
+            data: html,
+        }).then((results) => {
+            const stats = statsFilter(JSON.parse(results))
 
-    return metrics
-  })
-    .catch((error) => {
-      console.error(error)
-    })
+            saveRawData(results, `${siteName}_${siteType}_htmlvalidator`)
+
+            const metrics = {
+                htmlvalidator: {
+                    [siteName]: {
+                        [siteType]: {
+                            stats
+                        }
+                    }
+                }
+            }
+
+            sendToGraphite(metrics)
+            // TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
+            // console.log(metrics)
+
+            return metrics
+        })
+        .catch((error) => {
+            console.error(error)
+        })
 }
