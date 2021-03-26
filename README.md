@@ -6,7 +6,7 @@ Run competetive Accessibility and Quality checks and send them to a Graphite db
 
 ## Quickstart for local development
 
-Do the `yarn install` and `yarn start`. The tests will run and print some results to your console.
+Do the `npm install` and `npm run start`. The tests will run and print some results to your console.
 
 Next, go ahead and play with the scripts. Output is generated to the console and into the `reports`folder. Whatever crazy thing you invent – if you are inside the ZON network, your stats will instantly be available on https://grafana.ops.zeit.de/d/yqzo0fpZk/accessibility?orgId=1 .
 
