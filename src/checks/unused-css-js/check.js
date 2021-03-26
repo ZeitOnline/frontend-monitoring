@@ -22,7 +22,6 @@ exports.run = function run (siteName, siteType, url) {
 
         await page.goto(url);
 
-        //Retrive the coverage objects
         const [jsCoverage, cssCoverage] = await Promise.all([
             page.coverage.stopJSCoverage(),
             page.coverage.stopCSSCoverage(),
@@ -50,7 +49,6 @@ exports.run = function run (siteName, siteType, url) {
         })
         //console.log('js Coverage: ', statsFilter(jsCoverage))
 
-
         saveRawData(cssCoverage, `${siteName}_${siteType}_cssCoverage`)
         saveRawData(jsCoverage, `${siteName}_${siteType}_jsCoverage`)
 
@@ -59,44 +57,4 @@ exports.run = function run (siteName, siteType, url) {
       console.error(error)
     });
 
-/*
-
-  return getCss(url, {
-    headers: {
-      'User-Agent':
-    }
-  }).then(function (response) {
-    const css = getCompleteCss(response.links)
-
-    const results = cssStats(css, {
-      mediaQueries: false,
-      importantDeclarations: true
-    })
-
-    const stats = statsFilter(results)
-
-    const metrics = {
-      frontendmonitoring: {
-          cssstats: {
-            [siteName]: {
-              [siteType]: {
-                stats
-              }
-            }
-          }
-      }
-    }
-    sendToGraphite(metrics)
-
-    // TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
-    // console.log(metrics)
-
-    saveRawData(results, `${siteName}_${siteType}_cssstats`)
-
-    return metrics
-  })
-    .catch(function (error) {
-      console.error(error)
-    })
-    */
 }
