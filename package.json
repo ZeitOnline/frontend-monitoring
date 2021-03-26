@@ -1,6 +1,6 @@
 {
   "name": "frontend-monitoring",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Valentin von Guttenberg <greengiraffe@posteo.de>",
   "contributors": [
     "Thomas Puppe <info@thomaspuppe.de>",
@@ -19,7 +19,8 @@
     "html-validator": "^5.1.17",
     "jsdom": "^16.5.1",
     "node-fetch": "^2.6.1",
-    "pa11y": "^5.3.0"
+    "pa11y": "^5.3.0",
+    "puppeteer": "^1.20.0"
   },
   "scripts": {
     "cssstats": "node src/checks/cssstats/index.js",
@@ -28,7 +29,8 @@
     "webcoach": "node src/checks/webcoach/index.js",
     "homepagestats": "node src/checks/homepagestats/index.js",
     "adplaces": "node src/checks/adplaces/index.js",
-    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run webcoach && npm run adplaces"
+    "unused-css-js": "node src/checks/unused-css-js/index.js",
+    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run webcoach && npm run adplaces && npm run unused-css-js"
   },
   "devDependencies": {
     "eslint": "^7.22.0",
