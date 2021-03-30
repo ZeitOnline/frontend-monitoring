@@ -6,11 +6,8 @@ const sendToGraphite = require('./../../utils/sendToGraphite')
 const statsFilter = require('./filters/stats')
 const CONFIG = require('../../config/config')
 
-exports = module.exports = {}
-
-exports.run = function run (siteName, siteType, url) {
-
-    return (async () => {
+async function run(siteName, siteType, url) {
+    try {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         page.setUserAgent(CONFIG.userAgent)
@@ -32,14 +29,9 @@ exports.run = function run (siteName, siteType, url) {
               cssCoverage: {
                 [siteName]: {
                   [siteType]: statsFilter(cssCoverage)
-                }
-              }
-          }
-        })
-        //console.log('css Coverage: ', statsFilter(cssCoverage))
-
-        sendToGraphite({
-          frontendmonitoring: {
+                },
+              },
+              
               jsCoverage: {
                 [siteName]: {
                   [siteType]: statsFilter(jsCoverage)
@@ -47,14 +39,18 @@ exports.run = function run (siteName, siteType, url) {
               }
           }
         })
+        //console.log('css Coverage: ', statsFilter(cssCoverage))
         //console.log('js Coverage: ', statsFilter(jsCoverage))
 
         saveRawData(cssCoverage, `${siteName}_${siteType}_cssCoverage`)
         saveRawData(jsCoverage, `${siteName}_${siteType}_jsCoverage`)
 
         await browser.close();
-    })().catch(function (error) {
-      console.error(error)
+    } catch((error) => {
+      console.log(error)
     });
-
 }
+
+module.exports = {
+  run,
+};
