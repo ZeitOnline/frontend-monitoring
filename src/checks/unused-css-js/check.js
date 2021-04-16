@@ -31,7 +31,7 @@ async function run(siteName, siteType, url) {
                   [siteType]: statsFilter(cssCoverage)
                 },
               },
-              
+
               jsCoverage: {
                 [siteName]: {
                   [siteType]: statsFilter(jsCoverage)
@@ -46,9 +46,9 @@ async function run(siteName, siteType, url) {
         saveRawData(jsCoverage, `${siteName}_${siteType}_jsCoverage`)
 
         await browser.close();
-    } catch((error) => {
+    } catch (error) {
       console.log(error)
-    });
+    };
 }
 
 module.exports = {
