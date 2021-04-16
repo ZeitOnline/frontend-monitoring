@@ -8,9 +8,12 @@ const CONFIG = require('../../config/config')
 
 async function run(siteName, siteType, url) {
     try {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+            args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        });
         const page = await browser.newPage();
-        page.setUserAgent(CONFIG.userAgent)
+        page.setUserAgent(CONFIG.userAgent);
+        await page.setDefaultNavigationTimeout(0);
 
         await Promise.all([
             page.coverage.startJSCoverage(),
