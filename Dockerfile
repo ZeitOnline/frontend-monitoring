@@ -23,4 +23,4 @@ RUN mkdir reports
 
 RUN npm install --production
 
-CMD [ "npm", "run", "unused-css-js" ]
+CMD [ "npm", "start" ]
