@@ -1,6 +1,6 @@
 {
   "name": "frontend-monitoring",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Valentin von Guttenberg <greengiraffe@posteo.de>",
   "contributors": [
     "Thomas Puppe <info@thomaspuppe.de>",
@@ -17,9 +17,10 @@
     "get-css": "^4.0.3",
     "graphite": "^0.1.4",
     "html-validator": "^5.1.17",
-    "jsdom": "^16.5.1",
+    "jsdom": "^16.5.3",
     "node-fetch": "^2.6.1",
-    "pa11y": "^5.3.0"
+    "pa11y": "^5.3.1",
+    "puppeteer": "^8.0.0"
   },
   "scripts": {
     "cssstats": "node src/checks/cssstats/index.js",
@@ -28,14 +29,14 @@
     "webcoach": "node src/checks/webcoach/index.js",
     "homepagestats": "node src/checks/homepagestats/index.js",
     "adplaces": "node src/checks/adplaces/index.js",
-    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run webcoach && npm run adplaces"
+    "unused-css-js": "node src/checks/unused-css-js/index.js",
+    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run webcoach && npm run adplaces && npm run unused-css-js"
   },
   "devDependencies": {
-    "eslint": "^7.22.0",
-    "eslint-config-standard": "^16.0.2",
+    "eslint": "^7.24.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0"
   }
 }
