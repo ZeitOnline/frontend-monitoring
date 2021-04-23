@@ -17,6 +17,7 @@ spec:
             - npm
             - run
             - pa11y
+            - --no-update-notifier
           restartPolicy: OnFailure
 ---
 apiVersion: batch/v1beta1
@@ -37,6 +38,7 @@ spec:
             - npm
             - run
             - cssstats
+            - --no-update-notifier
           restartPolicy: OnFailure
 ---
 apiVersion: batch/v1beta1
@@ -57,6 +59,7 @@ spec:
             - npm
             - run
             - htmlvalidator
+            - --no-update-notifier
           restartPolicy: OnFailure
 ---
 apiVersion: batch/v1beta1
@@ -77,6 +80,7 @@ spec:
             - npm
             - run
             - homepagestats
+            - --no-update-notifier
           restartPolicy: OnFailure
 ---
 apiVersion: batch/v1beta1
@@ -97,6 +101,7 @@ spec:
             - npm
             - run
             - adplaces
+            - --no-update-notifier
           restartPolicy: OnFailure
 ---
 apiVersion: batch/v1beta1
@@ -117,4 +122,5 @@ spec:
             - npm
             - run
             - unused-css-js
+            - --no-update-notifier
           restartPolicy: OnFailure

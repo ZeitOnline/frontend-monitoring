@@ -23,4 +23,4 @@ RUN mkdir reports
 
 RUN npm install --production
 
-CMD [ "npm", "start" ]
+CMD [ "npm", "start", "--no-update-notifier" ]
