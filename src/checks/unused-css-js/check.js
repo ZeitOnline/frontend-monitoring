@@ -13,7 +13,7 @@ async function run(siteName, siteType, url) {
         });
         const page = await browser.newPage();
         page.setUserAgent(CONFIG.userAgent);
-        await page.setDefaultNavigationTimeout(0);
+        await page.setDefaultNavigationTimeout(180000);
 
         await Promise.all([
             page.coverage.startJSCoverage(),
