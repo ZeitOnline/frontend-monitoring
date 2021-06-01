@@ -12,7 +12,7 @@ Next, go ahead and play with the scripts. Output is generated to the console and
 
 ## High level overview
 
-- Run with `yarn start` which only does `node index.js`.
+- Run with `npm run start` which only does `node index.js`.
 - The `index.js` only itereates over a list of urls and starts "checks" with them.
 - Each check is a module inside the `checks` folder.
 - A check runs one tool (eg html-validator, pa11y) for each URL given, and handles the result on its own. "Handling" can mean anything, but in most cases it is
