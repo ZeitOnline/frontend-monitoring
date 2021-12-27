@@ -1,4 +1,5 @@
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const validator = require('html-validator')
 const CONFIG = require('../../config/config')
 
@@ -22,7 +23,7 @@ exports.run = async function run(siteName, siteType, url) {
     return validator({
             data: html,
         }).then((results) => {
-            const stats = statsFilter(JSON.parse(results))
+            const stats = statsFilter(results)
 
             saveRawData(results, `${siteName}_${siteType}_htmlvalidator`)
 
