@@ -37,9 +37,6 @@ const URLS = {
   'zeit-pure': {
     homepage: 'https://www.zeit.de/zustimmung',
     article: 'https://www.zeit.de/impressum/index'
-  },
-  'zeit-staging': {
-    article: 'https://www.staging.zeit.de/test/test-hennes/embed-test'
   }
 }
 
