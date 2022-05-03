@@ -33,12 +33,14 @@ exports.run = function run (siteName, siteType, url) {
     const numberOfContrastErrors = numberOfSpecificIssueFilter(results, 'WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail')
 
     const metrics = {
-      a11y: {
-        [siteName]: {
-          [siteType]: {
-            stats,
-            topIssues,
-            numberOfContrastErrors: numberOfContrastErrors
+      frontendmonitoring: {
+        a11y: {
+          [siteName]: {
+            [siteType]: {
+              stats,
+              topIssues,
+              numberOfContrastErrors: numberOfContrastErrors
+            }
           }
         }
       }

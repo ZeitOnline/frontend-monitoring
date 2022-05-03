@@ -25,11 +25,13 @@ exports.run = function run (siteName, siteType, url) {
     // console.log(stats)
 
     const metrics = {
-      homepagestats: {
-        [siteName]: {
-          [siteType]: {
-            stats
-          }
+      frontendmonitoring: {
+        homepagestats: {
+            [siteName]: {
+            [siteType]: {
+                stats
+            }
+            }
         }
       }
     }

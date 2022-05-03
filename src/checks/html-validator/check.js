@@ -28,6 +28,7 @@ exports.run = async function run(siteName, siteType, url) {
             saveRawData(results, `${siteName}_${siteType}_htmlvalidator`)
 
             const metrics = {
+              frontendmonitoring: {
                 htmlvalidator: {
                     [siteName]: {
                         [siteType]: {
@@ -35,6 +36,7 @@ exports.run = async function run(siteName, siteType, url) {
                         }
                     }
                 }
+              }
             }
 
             sendToGraphite(metrics)

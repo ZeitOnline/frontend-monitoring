@@ -13,17 +13,19 @@ exports.run = function run (siteName, siteType, url, mobile=false) {
 
 		saveRawData(results, `${siteName}_${siteType}_webcoach`)
 
-	    const metrics = {
-	      webcoach: {
-	        [siteName]: {
-	          [siteType]: {
-	            stats
-	          }
-	        }
-	      }
-	    }
+		const metrics = {
+			frontendmonitoring: {
+				webcoach: {
+					[siteName]: {
+						[siteType]: {
+							stats
+						}
+					}
+				}
+			}
+		}
 
-	    sendToGraphite(metrics)
+		sendToGraphite(metrics)
 		// TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
 		// console.log(metrics)
 

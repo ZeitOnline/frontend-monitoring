@@ -24,20 +24,9 @@ exports.run = function run (siteName, siteType, url) {
 
     const stats = statsFilter(results)
 
-    const metrics = {
-      cssstats: {
-        [siteName]: {
-          [siteType]: {
-            stats
-          }
-        }
-      }
-    }
-    sendToGraphite(metrics)
-
     // currently (dec 2020) we have some trouble with the graphite buckets,
     // so I put the data into two of them until it works
-    const metrics2 = {
+    const metrics = {
       frontendmonitoring: {
           cssstats: {
             [siteName]: {
@@ -48,7 +37,7 @@ exports.run = function run (siteName, siteType, url) {
           }
       }
     }
-    sendToGraphite(metrics2)
+    sendToGraphite(metrics)
 
     // TODO: zentrales console.log, wenn Parameter --verbose gesetzt wurde
     // console.log(metrics)

@@ -22,20 +22,10 @@ exports.run = function run (label, url) {
 
   return JSDOM.fromURL(url, options).then(dom => {
     const stats = statsFilter(dom)
-    // console.log(stats)
-
-    const metrics = {
-      adplaces: {
-        [label]: {
-          stats
-        }
-      }
-    }
-    sendToGraphite(metrics)
 
     // currently (dec 2020) we have some trouble with the graphite buckets,
     // so I put the data into two of them until it works
-    const metrics2 = {
+    const metrics = {
       frontendmonitoring: {
         adplaces: {
           [label]: {
@@ -44,7 +34,7 @@ exports.run = function run (label, url) {
         }
       }
     }
-    sendToGraphite(metrics2)
+    sendToGraphite(metrics)
 
 
     saveRawData(stats, `zeit_${label}_adplaces`)
