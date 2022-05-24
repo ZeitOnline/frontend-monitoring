@@ -44,13 +44,13 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.GCR_IMAGE_REGISTRY }}/${{ steps.baseproject.outputs.project_name }}:${{ github.sha }}
-            ${{ secrets.GCR_IMAGE_REGISTRY }}/${{ steps.baseproject.outputs.project_name }}:latest
+            ${{ steps.baseproject.outputs.gcr_image_registry }}/${{ steps.baseproject.outputs.project_name }}:${{ github.sha }}
+            ${{ steps.baseproject.outputs.gcr_image_registry }}/${{ steps.baseproject.outputs.project_name }}:latest
 
       - name: Deploy to K8s
         uses: ZeitOnline/gh-action-gke-deployer@v0
         with:
           command: |
             cd k8s
-            kustomize edit set image ${{ secrets.GCR_IMAGE_REGISTRY }}/${{ steps.baseproject.outputs.project_name }}:${{ github.sha }}
+            kustomize edit set image ${{ steps.baseproject.outputs.gcr_image_registry }}/${{ steps.baseproject.outputs.project_name }}:${{ github.sha }}
             kustomize build . | kubectl -n ${{ steps.baseproject.outputs.project_name }} apply -f -
