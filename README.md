@@ -49,7 +49,7 @@ In case you messed up your context via other projects, and get the error `contex
 
 ### Deployment 
 
-Zu GitHub pushen und dann bei [https://drone.ops.zeit.de/ZeitOnline/frontend-monitoring/](https://drone.ops.zeit.de/ZeitOnline/frontend-monitoring/) zugucken. Login funktioniert via GitHub.
+Zu GitHub pushen. [https://github.com/ZeitOnline/frontend-monitoring/actions](GitHub Actions) deployed.
 
 
 ## Checks
