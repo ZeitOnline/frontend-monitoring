@@ -32,9 +32,8 @@
     "cssstats": "node src/checks/cssstats/index.js",
     "htmlvalidator": "node src/checks/html-validator/index.js",
     "pa11y": "node src/checks/pa11y/index.js",
-    "webcoach": "node src/checks/webcoach/index.js",
     "homepagestats": "node src/checks/homepagestats/index.js",
     "adplaces": "node src/checks/adplaces/index.js",
-    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run webcoach && npm run adplaces"
+    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run adplaces"
   }
 }
