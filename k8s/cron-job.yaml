@@ -5,7 +5,7 @@ metadata:
   name: frontend-monitoring-pa11y
 spec:
   concurrencyPolicy: Forbid
-  schedule: "*/15 * * * *"
+  schedule: "20 */6 * * *"
   jobTemplate:
     spec:
       template:
@@ -26,7 +26,7 @@ metadata:
   name: frontend-monitoring-cssstats
 spec:
   concurrencyPolicy: Forbid
-  schedule: "*/15 * * * *"
+  schedule: "50 */6 * * *"
   jobTemplate:
     spec:
       template:
@@ -47,7 +47,7 @@ metadata:
   name: frontend-monitoring-htmlvalidator
 spec:
   concurrencyPolicy: Forbid
-  schedule: "*/15 * * * *"
+  schedule: "40 */6 * * *"
   jobTemplate:
     spec:
       template:
@@ -68,7 +68,7 @@ metadata:
   name: frontend-monitoring-homepagestats
 spec:
   concurrencyPolicy: Forbid
-  schedule: "*/10 * * * *"
+  schedule: "*/20 * * * *"
   jobTemplate:
     spec:
       template:

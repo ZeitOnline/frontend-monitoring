@@ -55,7 +55,6 @@ Zu GitHub pushen und dann bei [https://drone.ops.zeit.de/ZeitOnline/frontend-mon
 ## Checks
 
 - Pa11y ([GitHub](https://github.com/pa11y/pa11y), [npm](https://www.npmjs.com/package/pa11y))
-- Webcoach ([GitHub](https://github.com/sitespeedio/coach), [npm](https://www.npmjs.com/package/webcoach)) – zurzeit deaktiviert weil der Puppeteer/Browser nicht tut.
 - HTML-Validator ([GitHub](https://github.com/zrrrzzt/html-validator), [npm](https://www.npmjs.com/package/html-validator))
 
 

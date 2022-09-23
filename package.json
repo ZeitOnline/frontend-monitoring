@@ -14,13 +14,12 @@
   "dependencies": {
     "async": "^3.2.0",
     "cssstats": "^4.0.2",
-    "get-css": "^4.0.3",
+    "get-css": "^1.1.1",
     "graphite": "^0.1.4",
     "html-validator": "^6.0.0",
-    "jsdom": "^19.0.0",
+    "jsdom": "^20.0.0",
     "node-fetch": "^3.2.4",
-    "pa11y": "^6.0.0",
-    "puppeteer": "^13.7.0"
+    "pa11y": "^6.0.0"
   },
   "devDependencies": {
     "eslint": "^8.5.0",
@@ -33,10 +32,8 @@
     "cssstats": "node src/checks/cssstats/index.js",
     "htmlvalidator": "node src/checks/html-validator/index.js",
     "pa11y": "node src/checks/pa11y/index.js",
-    "webcoach": "node src/checks/webcoach/index.js",
     "homepagestats": "node src/checks/homepagestats/index.js",
     "adplaces": "node src/checks/adplaces/index.js",
-    "unused-css-js": "node src/checks/unused-css-js/index.js",
-    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run webcoach && npm run adplaces && npm run unused-css-js"
+    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run adplaces"
   }
 }
