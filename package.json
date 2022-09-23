@@ -19,8 +19,7 @@
     "html-validator": "^6.0.0",
     "jsdom": "^19.0.0",
     "node-fetch": "^3.2.4",
-    "pa11y": "^6.0.0",
-    "puppeteer": "^13.7.0"
+    "pa11y": "^6.0.0"
   },
   "devDependencies": {
     "eslint": "^8.5.0",
@@ -36,7 +35,6 @@
     "webcoach": "node src/checks/webcoach/index.js",
     "homepagestats": "node src/checks/homepagestats/index.js",
     "adplaces": "node src/checks/adplaces/index.js",
-    "unused-css-js": "node src/checks/unused-css-js/index.js",
-    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run webcoach && npm run adplaces && npm run unused-css-js"
+    "start": "npm run cssstats && npm run htmlvalidator && npm run pa11y && npm run homepagestats && npm run webcoach && npm run adplaces"
   }
 }
