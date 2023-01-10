@@ -3,8 +3,6 @@ apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: frontend-monitoring-pa11y
-env:
-  gar_docker_registry : ${{ vars.GAR_DOCKER_REGISTRY }}
 spec:
   concurrencyPolicy: Forbid
   schedule: "20 */6 * * *"
@@ -14,7 +12,7 @@ spec:
         spec:
           containers:
           - name: pa11y
-            image: ${{ vars.GAR_DOCKER_REGISTRY }}/frontend-monitoring:v0.1
+            image: europe-west3-docker.pkg.dev/zeitonline-engineering/docker-zon/frontend-monitoring:kustomized
             command:
             - npm
             - run
@@ -35,7 +33,7 @@ spec:
         spec:
           containers:
           - name: cssstats
-            image: ${{ vars.GAR_DOCKER_REGISTRY }}/frontend-monitoring:v0.1
+            image: europe-west3-docker.pkg.dev/zeitonline-engineering/docker-zon/frontend-monitoring:kustomized
             command:
             - npm
             - run
@@ -56,7 +54,7 @@ spec:
         spec:
           containers:
           - name: htmlvalidator
-            image: ${{ vars.GAR_DOCKER_REGISTRY }}/frontend-monitoring:v0.1
+            image: europe-west3-docker.pkg.dev/zeitonline-engineering/docker-zon/frontend-monitoring:kustomized
             command:
             - npm
             - run
@@ -77,7 +75,7 @@ spec:
         spec:
           containers:
           - name: homepagestats
-            image: ${{ vars.GAR_DOCKER_REGISTRY }}/frontend-monitoring:v0.1
+            image: europe-west3-docker.pkg.dev/zeitonline-engineering/docker-zon/frontend-monitoring:kustomized
             command:
             - npm
             - run
@@ -98,7 +96,7 @@ spec:
         spec:
           containers:
           - name: adplaces
-            image: ${{ vars.GAR_DOCKER_REGISTRY }}/frontend-monitoring:v0.1
+            image: europe-west3-docker.pkg.dev/zeitonline-engineering/docker-zon/frontend-monitoring:kustomized
             command:
             - npm
             - run

@@ -29,7 +29,7 @@ jobs:
           project_name: ${{ env.PROJECT }}
           environment: ${{ env.ENVIRONMENT }}
           gke_auth: true
-          gcr_auth: true
+          gar_docker_auth: true
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -44,13 +44,13 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ steps.baseproject.outputs.gcr_image_registry }}/${{ steps.baseproject.outputs.project_name }}:${{ github.sha }}
-            ${{ steps.baseproject.outputs.gcr_image_registry }}/${{ steps.baseproject.outputs.project_name }}:latest
+            ${{ vars.GAR_DOCKER_REGISTRY }}/${{ env.PROJECT }}:${{ github.sha }}
+            ${{ vars.GAR_DOCKER_REGISTRY }}/${{ env.PROJECT }}:latest
 
       - name: Deploy to K8s
         uses: ZeitOnline/gh-action-gke-deployer@v0
         with:
           command: |
             cd k8s
-            kustomize edit set image ${{ steps.baseproject.outputs.gcr_image_registry }}/${{ steps.baseproject.outputs.project_name }}:${{ github.sha }}
-            kustomize build . | kubectl -n ${{ steps.baseproject.outputs.project_name }} apply -f -
+            kustomize edit set image ${{ vars.GAR_DOCKER_REGISTRY }}/${{ env.PROJECT }}:${{ github.sha }}
+            kubectl -k -n ${{ steps.baseproject.outputs.project_name }} apply
