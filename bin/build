@@ -2,5 +2,5 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd ${DIR}/..
 REV=$(git describe --tags)
-PROJECT=europe-west3-docker.pkg.dev/frontend-monitoring
+PROJECT=${{ gar_docker_registry }}/frontend-monitoring
 docker build --tag ${PROJECT}:${REV} .
