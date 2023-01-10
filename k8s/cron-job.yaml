@@ -3,6 +3,8 @@ apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: frontend-monitoring-pa11y
+env:
+  gar_docker_registry : ${{ vars.GAR_DOCKER_REGISTRY }}
 spec:
   concurrencyPolicy: Forbid
   schedule: "20 */6 * * *"
@@ -12,7 +14,7 @@ spec:
         spec:
           containers:
           - name: pa11y
-            image: europe-west3-docker.pkg.dev/frontend-monitoring:v0.1
+            image: ${{ vars.GAR_DOCKER_REGISTRY }}/frontend-monitoring:v0.1
             command:
             - npm
             - run
@@ -33,7 +35,7 @@ spec:
         spec:
           containers:
           - name: cssstats
-            image: europe-west3-docker.pkg.dev/frontend-monitoring:v0.1
+            image: ${{ vars.GAR_DOCKER_REGISTRY }}/frontend-monitoring:v0.1
             command:
             - npm
             - run
@@ -54,7 +56,7 @@ spec:
         spec:
           containers:
           - name: htmlvalidator
-            image: europe-west3-docker.pkg.dev/frontend-monitoring:v0.1
+            image: ${{ vars.GAR_DOCKER_REGISTRY }}/frontend-monitoring:v0.1
             command:
             - npm
             - run
@@ -75,7 +77,7 @@ spec:
         spec:
           containers:
           - name: homepagestats
-            image: europe-west3-docker.pkg.dev/frontend-monitoring:v0.1
+            image: ${{ vars.GAR_DOCKER_REGISTRY }}/frontend-monitoring:v0.1
             command:
             - npm
             - run
@@ -96,7 +98,7 @@ spec:
         spec:
           containers:
           - name: adplaces
-            image: europe-west3-docker.pkg.dev/frontend-monitoring:v0.1
+            image: ${{ vars.GAR_DOCKER_REGISTRY }}/frontend-monitoring:v0.1
             command:
             - npm
             - run
