@@ -53,4 +53,4 @@ jobs:
           command: |
             cd k8s
             kustomize edit set image ${{ vars.GAR_DOCKER_REGISTRY }}/${{ env.PROJECT }}:${{ github.sha }}
-            kubectl -k -n ${{ steps.baseproject.outputs.project_name }} apply
+            kubectl -n ${{ steps.baseproject.outputs.project_name }} apply -k .
