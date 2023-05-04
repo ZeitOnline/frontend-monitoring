@@ -1,4 +1,4 @@
-name: Deployment
+name: Build
 
 on:
   push:
@@ -10,8 +10,8 @@ env:
   PROJECT: frontend-monitoring
 
 jobs:
-  build-and-deploy:
-    name: Deploy Frontend Monitoring
+  build:
+    name: Build Frontend Monitoring
     runs-on: [self-hosted, x64, linux, ephemeral, zon-image-latest]
 
     permissions:
@@ -47,10 +47,14 @@ jobs:
             ${{ vars.GAR_DOCKER_REGISTRY }}/${{ env.PROJECT }}:${{ github.sha }}
             ${{ vars.GAR_DOCKER_REGISTRY }}/${{ env.PROJECT }}:latest
 
-      - name: Deploy to K8s
-        uses: ZeitOnline/gh-action-gke-deployer@v0
+      - name: kustomize image tag
+        run: |
+          cd k8s
+          kustomize edit set image ${{ secrets.GAR_DOCKER_REGISTRY }}/${{ steps.baseproject.outputs.project_name }}:${{ github.sha }}
+
+      - name: auto commit
+        id: auto_commit
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          command: |
-            cd k8s
-            kustomize edit set image ${{ vars.GAR_DOCKER_REGISTRY }}/${{ env.PROJECT }}:${{ github.sha }}
-            kubectl -n ${{ steps.baseproject.outputs.project_name }} apply -k .
+          commit_message: "GHA: bump image version to ${{ github.sha }} for deployments"
+          file_pattern: k8s/
