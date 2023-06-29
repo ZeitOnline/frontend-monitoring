@@ -1,5 +1,5 @@
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: frontend-monitoring-pa11y
@@ -20,7 +20,7 @@ spec:
             - --no-update-notifier
           restartPolicy: OnFailure
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: frontend-monitoring-cssstats
@@ -41,7 +41,7 @@ spec:
             - --no-update-notifier
           restartPolicy: OnFailure
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: frontend-monitoring-htmlvalidator
@@ -62,7 +62,7 @@ spec:
             - --no-update-notifier
           restartPolicy: OnFailure
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: frontend-monitoring-homepagestats
@@ -83,7 +83,7 @@ spec:
             - --no-update-notifier
           restartPolicy: OnFailure
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: frontend-monitoring-adplaces
