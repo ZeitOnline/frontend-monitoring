@@ -4,4 +4,4 @@ resources:
 - cron-job.yaml
 images:
 - name: europe-west3-docker.pkg.dev/zeitonline-engineering/docker-zon/frontend-monitoring
-  newTag: 1f38d9683991a0db496ecd1c0565e565b4e44dfa
+  newTag: bc4f931b40b76d188d547eb5b41a9dc5d0f37d90
