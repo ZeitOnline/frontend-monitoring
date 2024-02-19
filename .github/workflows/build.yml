@@ -32,7 +32,7 @@ jobs:
           gar_docker_auth: true
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
         id: buildx
         with:
           driver: docker
