@@ -54,7 +54,7 @@ jobs:
 
       - name: auto commit
         id: auto_commit
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "GHA: bump image version to ${{ github.sha }} for deployments"
           file_pattern: k8s/
